@@ -1,12 +1,13 @@
 package com.singh.aakash.getnearbyplaces;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class ProcessPlaces extends PlaceJSONParser{
         public ProcessPlaces(double latitude,double longitude){
-            super(latitude,longitude);
+            super(latitude, longitude);
 
         }
 
@@ -68,9 +69,27 @@ public class MainActivity extends AppCompatActivity {
         public void processDetailResult() {
             super.processDetailResult();
             placesRecyclerViewAdapter=new PlacesRecyclerViewAdapter(getmPlaces(),MainActivity.this);
-            Log.v(LOG_TAG,"item count is"+placesRecyclerViewAdapter.getItemCount());
+            //Log.v(LOG_TAG,"item count is"+placesRecyclerViewAdapter.getItemCount());
             mRecyclerView.setAdapter(placesRecyclerViewAdapter);
-            Log.v(LOG_TAG, "item count is" + placesRecyclerViewAdapter.getItemCount());
+            //Log.v(LOG_TAG, "item count is" + placesRecyclerViewAdapter.getItemCount());
+            mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(MainActivity.this, mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    //Log.v("Fuck", "fucked");
+                    Toast.makeText(MainActivity.this, "Zor se daba bhosadi k", Toast.LENGTH_LONG).show();
+
+                }
+
+                @Override
+                public void onItemLongClick(View view, int position) {
+                    //Log.v("Fuck", "fuck");
+                    Toast.makeText(MainActivity.this, "Long Tap", Toast.LENGTH_SHORT).show();
+                   // Intent intent = new Intent(MainActivity.this, ViewPhotoActivity.class);
+                    //intent.putExtra(PHOTO_TRANSFER, placesRecyclerViewAdapter.getPlace(position));
+                    //startActivity(intent);
+                }
+            }));
+
         }
 
         public void execute(){
