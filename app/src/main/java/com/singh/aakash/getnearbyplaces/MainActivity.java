@@ -1,5 +1,6 @@
 package com.singh.aakash.getnearbyplaces;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Places> mPlacesList= new ArrayList<Places>();
     private RecyclerView mRecyclerView;
     private PlacesRecyclerViewAdapter placesRecyclerViewAdapter;
+    public static final String PLACE_TRANSFER="PLACE_TRANSFER";
 //small change
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,17 +78,17 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(View view, int position) {
                     //Log.v("Fuck", "fucked");
-                    Toast.makeText(MainActivity.this, "Zor se daba bhosadi k", Toast.LENGTH_LONG).show();
-
+                    //Toast.makeText(MainActivity.this, "Zor se daba bhosadi k", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this,Place_Details.class);
+                    intent.putExtra(PLACE_TRANSFER, placesRecyclerViewAdapter.getPlace(position));
+                    startActivity(intent);
                 }
 
                 @Override
                 public void onItemLongClick(View view, int position) {
                     //Log.v("Fuck", "fuck");
-                    Toast.makeText(MainActivity.this, "Long Tap", Toast.LENGTH_SHORT).show();
-                   // Intent intent = new Intent(MainActivity.this, ViewPhotoActivity.class);
-                    //intent.putExtra(PHOTO_TRANSFER, placesRecyclerViewAdapter.getPlace(position));
-                    //startActivity(intent);
+                    Toast.makeText(MainActivity.this, "Fuck u", Toast.LENGTH_SHORT).show();
+
                 }
             }));
 

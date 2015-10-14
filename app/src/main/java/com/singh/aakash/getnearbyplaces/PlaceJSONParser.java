@@ -143,7 +143,7 @@ public class PlaceJSONParser extends GetRawData {
         final String latitude = "lat";
         final String longitude = "lng";
         final String formatted_address = "formatted_address";
-        final String formatted_phone = "formatted_phone";
+        final String formatted_phone = "formatted_phone_number";
         final String website = "website";
         final String rating = "rating";
         final String international_phone_number = "international_phone_number";
