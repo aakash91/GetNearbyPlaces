@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this,Place_Details.class);
                     intent.putExtra(PLACE_TRANSFER, placesRecyclerViewAdapter.getPlace(position));
                     startActivity(intent);
+
+
                 }
 
                 @Override

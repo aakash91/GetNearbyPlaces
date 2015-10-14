@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Place_Details extends MainActivity {
@@ -25,6 +27,26 @@ public class Place_Details extends MainActivity {
 
         TextView placeRating=(TextView) findViewById(R.id.place_rating);
         placeRating.setText("Ratings "+  places.getRating());
+
+        final String latitude=places.getLatitude();
+        final String longitude=places.getLongitude();
+        final String name=places.getName();
+
+        final Button button = (Button) findViewById(R.id.map_details);
+        button.setText("GET DIRECTIONS ON MAPS");
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(Place_Details.this, MapsActivity.class);
+
+                intent.putExtra("latitude",latitude);
+                intent.putExtra("longitude",longitude);
+                intent.putExtra("name",name);
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
