@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Places> mPlacesList= new ArrayList<Places>();
     private RecyclerView mRecyclerView;
     private PlacesRecyclerViewAdapter placesRecyclerViewAdapter;
-
+//small change
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
