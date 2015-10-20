@@ -28,6 +28,8 @@ public class Place_Details extends MainActivity {
         TextView placeRating=(TextView) findViewById(R.id.place_rating);
         placeRating.setText("Ratings "+  places.getRating());
 
+        final String place_id=places.getPlace_id();
+
         final String latitude=places.getLatitude();
         final String longitude=places.getLongitude();
         final String name=places.getName();
@@ -47,6 +49,21 @@ public class Place_Details extends MainActivity {
                 startActivity(intent);
             }
         });
+
+        final Button button1 = (Button) findViewById(R.id.shop_details);
+        button1.setText("What does this shop sell");
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                ConnectToDB connectToDB=new ConnectToDB(Place_Details.this,place_id);
+                connectToDB.execute();
+//                Intent intent = new Intent(Place_Details.this, MapsActivity.class);
+//
+//                intent.putExtra("placeId",place_id);
+//
+//                startActivity(intent);
+           }
+       });
     }
 
     @Override

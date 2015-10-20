@@ -74,6 +74,16 @@
             android:textColor="#77d4ff"
             />
 
+        <Button
+            android:id="@+id/shop_details"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#77d4ff"
+            />
+
+
     </LinearLayout>
 
 

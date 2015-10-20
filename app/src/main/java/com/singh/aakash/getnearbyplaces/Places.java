@@ -18,8 +18,9 @@ public class Places implements Serializable {
     private String rating;
     private String international_phone_number;
     private String url;
+    private String place_id;
 
-    public Places(String name,String icon, String vicinity, String latitude, String longitude, String formatted_address, String formatted_phone, String website, String rating, String international_phone_number, String url) {
+    public Places(String name,String icon, String vicinity, String latitude, String longitude, String formatted_address, String formatted_phone, String website, String rating, String international_phone_number, String url,String place_id) {
         this.name=name;
         this.icon = icon;
         this.vicinity = vicinity;
@@ -31,6 +32,11 @@ public class Places implements Serializable {
         this.rating = rating;
         this.international_phone_number = international_phone_number;
         this.url = url;
+        this.place_id=place_id;
+    }
+
+    public String getPlace_id() {
+        return place_id;
     }
 
     public String getName() {

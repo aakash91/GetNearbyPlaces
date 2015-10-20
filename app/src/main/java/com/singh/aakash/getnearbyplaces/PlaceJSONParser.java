@@ -148,6 +148,7 @@ public class PlaceJSONParser extends GetRawData {
         final String rating = "rating";
         final String international_phone_number = "international_phone_number";
         final String url = "url";
+        final String placeId="place_id";
 
         for (String s : detailsData) {
             try {
@@ -167,6 +168,7 @@ public class PlaceJSONParser extends GetRawData {
                 String mRating;
                 String mNumber;
                 String mUrl;
+                String mPlaceId;
 
                 Log.v(LOG_TAG, "detail string is " + s);
                 JSONObject jsonObject = jsonObject1.getJSONObject(results);
@@ -223,6 +225,12 @@ public class PlaceJSONParser extends GetRawData {
                 } else {
                     mUrl = "n/a";
                 }
+                if (jsonObject.has(placeId)) {
+                    mPlaceId = jsonObject.getString(placeId);
+                } else {
+                    mPlaceId = "n/a";
+                }
+
 
                 if (jsonObject.has(geometry)) {
                     JSONObject mGeometry = jsonObject.getJSONObject(geometry);
@@ -239,7 +247,7 @@ public class PlaceJSONParser extends GetRawData {
                     mLongitude="n/a";
                 }
 
-                Places place = new Places(mName,mIcon, mVicinity, mLatitude, mLongitude, mAdress, mPhone, mWebsite, mRating, mNumber, mUrl);
+                Places place = new Places(mName,mIcon, mVicinity, mLatitude, mLongitude, mAdress, mPhone, mWebsite, mRating, mNumber, mUrl,mPlaceId);
                 mPlaces.add(place);
 
 
