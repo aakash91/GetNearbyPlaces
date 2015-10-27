@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=getIntent();
         double latitude=intent.getDoubleExtra("lat", 78);
         double longitude=intent.getDoubleExtra("lng",78);
+        String type=intent.getExtras().getString("type");
+
+        Log.v("recieved this",latitude + " " + longitude + " "+type);
         //ProcessPlaces processPlaces=new ProcessPlaces(18.5582770,73.9498070);
-        ProcessPlaces processPlaces=new ProcessPlaces(latitude,longitude);
+        ProcessPlaces processPlaces=new ProcessPlaces(latitude,longitude,type);
         processPlaces.execute();
 
     }
@@ -69,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public class ProcessPlaces extends PlaceJSONParser{
-        public ProcessPlaces(double latitude,double longitude){
-            super(latitude, longitude);
+        public ProcessPlaces(double latitude,double longitude,String type){
+            super(latitude, longitude,type);
 
         }
 

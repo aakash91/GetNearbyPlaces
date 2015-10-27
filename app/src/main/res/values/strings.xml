@@ -11,4 +11,5 @@
     <string name="title_activity_category_intent">Category_intent</string>
     <string name="title_activity_products__list">Products_List</string>
     <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_shops_category">shops_category</string>
 </resources>

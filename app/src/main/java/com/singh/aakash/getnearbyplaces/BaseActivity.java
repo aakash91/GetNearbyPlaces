@@ -105,7 +105,11 @@ public class BaseActivity extends AppCompatActivity implements
             if (attributions != null) {
                 mAttTextView.setText(Html.fromHtml(attributions.toString()));
             }
-            Intent intent=new Intent(BaseActivity.this,MainActivity.class);
+
+
+            //
+            Intent intent=new Intent(BaseActivity.this,shops_category.class);
+            //
             intent.putExtra("lat",lat);
             intent.putExtra("lng",lng);
             startActivity(intent);

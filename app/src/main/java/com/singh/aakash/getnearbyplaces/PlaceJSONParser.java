@@ -31,9 +31,9 @@ public class PlaceJSONParser extends GetRawData {
     private ArrayList<String> uriList;
     private List<String> detailsData;
 
-    public PlaceJSONParser(double latitude, double longitude) {
+    public PlaceJSONParser(double latitude, double longitude,String type) {
         super(null);
-        createAndUpdateUri(latitude, longitude);
+        createAndUpdateUri(latitude, longitude,type);
         mPlaces = new ArrayList<>();
         placeIds = new ArrayList<>();
         detailsData = new ArrayList<>();
@@ -41,7 +41,7 @@ public class PlaceJSONParser extends GetRawData {
 
     }
 
-    private boolean createAndUpdateUri(double latitude, double longitude) {
+    private boolean createAndUpdateUri(double latitude, double longitude,String type) {
         final String location = "location=";
         final String radius = "radius";
         String loc = latitude + "," + longitude;
@@ -54,10 +54,10 @@ public class PlaceJSONParser extends GetRawData {
 //                .appendQueryParameter(location, loc).appendQueryParameter(radius, "2000").appendQueryParameter(key, "AIzaSyDgWFzq9BU2AVAayEBLGB4YMlbvJ1mRCnQ").build();
         mDestinationUri = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         mDestinationUri.append("location=" + latitude + "," + longitude);
-        mDestinationUri.append("&radius=5000");
+        mDestinationUri.append("&radius=2000");
         //sb.append("&types="+type);
         //mDestinationUri.append("&sensor=true");
-        mDestinationUri.append("&type=food");
+        mDestinationUri.append("&type="+type);
         mDestinationUri.append("&key=");
         mDestinationUri.append(key);
         Log.v(LOG_TAG, "fukin uri is " + mDestinationUri.toString());
