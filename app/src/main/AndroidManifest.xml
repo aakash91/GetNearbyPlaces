@@ -19,14 +19,20 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:name=".BaseActivity"
+            android:label="@string/title_activity_base" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+
         <activity
             android:name=".Place_Details"
             android:label="@string/title_activity_place__details"
@@ -55,6 +61,11 @@
             android:name=".Products_List"
             android:label="@string/title_activity_products__list" >
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDXFX0h7cwMVPGt4GXfE4bZn3azVPDwhOg" />
+
     </application>
 
 </manifest>

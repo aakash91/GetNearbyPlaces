@@ -28,9 +28,18 @@ public class MainActivity extends AppCompatActivity {
         //getRawData.execute();
         //PlaceJSONParser placeJSONParser=new PlaceJSONParser(18.5582770,73.9498070);
         //placeJSONParser.execute();
+
+
+
+
+
         mRecyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ProcessPlaces processPlaces=new ProcessPlaces(18.5582770,73.9498070);
+        Intent intent=getIntent();
+        double latitude=intent.getDoubleExtra("lat", 78);
+        double longitude=intent.getDoubleExtra("lng",78);
+        //ProcessPlaces processPlaces=new ProcessPlaces(18.5582770,73.9498070);
+        ProcessPlaces processPlaces=new ProcessPlaces(latitude,longitude);
         processPlaces.execute();
 
     }

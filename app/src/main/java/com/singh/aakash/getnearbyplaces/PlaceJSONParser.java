@@ -45,7 +45,11 @@ public class PlaceJSONParser extends GetRawData {
         final String location = "location=";
         final String radius = "radius";
         String loc = latitude + "," + longitude;
-        final String key = "AIzaSyDgWFzq9BU2AVAayEBLGB4YMlbvJ1mRCnQ";
+
+        //final String key = "AIzaSyDgWFzq9BU2AVAayEBLGB4YMlbvJ1mRCnQ";
+        final String key = "AIzaSyDELO7UmumdlzQhGy1Nu8R-65kYF2cmg7Q";
+
+
 //        mDestinationUri = Uri.parse("https://maps.googleapis.com/maps/api/place/nearbysearch/json").buildUpon()
 //                .appendQueryParameter(location, loc).appendQueryParameter(radius, "2000").appendQueryParameter(key, "AIzaSyDgWFzq9BU2AVAayEBLGB4YMlbvJ1mRCnQ").build();
         mDestinationUri = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
@@ -65,7 +69,8 @@ public class PlaceJSONParser extends GetRawData {
         Uri mDestinationUri1;
         final String key = "key";
         mDestinationUri1 = Uri.parse("https://maps.googleapis.com/maps/api/place/details/json").buildUpon()
-                .appendQueryParameter(placeId, place_id).appendQueryParameter(key, "AIzaSyDgWFzq9BU2AVAayEBLGB4YMlbvJ1mRCnQ").build();
+                //.appendQueryParameter(placeId, place_id).appendQueryParameter(key, "AIzaSyDgWFzq9BU2AVAayEBLGB4YMlbvJ1mRCnQ").build();
+        .appendQueryParameter(placeId, place_id).appendQueryParameter(key, "AIzaSyDELO7UmumdlzQhGy1Nu8R-65kYF2cmg7Q").build();
 
         return mDestinationUri1.toString();
     }
