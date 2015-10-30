@@ -16,28 +16,28 @@ import java.util.List;
 
 //import static android.support.v4.app.ActivityCompat.startActivity;
 
-public class DBForProducts {
+public class DBForAds {
     //Product product;
     //List<String> categories;
-    List<String> productsList;
+    List<String> AdList;
     Context context;
-    String categoryFound;
+
     List<String> toBeSent;
-    String placeId;
+
 
     public void execute(){
         ConnectToServer connectToServer=new ConnectToServer();
-        connectToServer.execute(categoryFound);
+        connectToServer.execute();
     }
-    public DBForProducts(Context context,String categoryFound,String placeId) {
-        this.categoryFound=categoryFound;
-        //categories=new ArrayList<>();
+    public DBForAds(Context context,List<String> placeIdList) {
+
+
         this.context=context;
-        this.placeId=placeId;
-        productsList=new ArrayList<>();
+
+
         toBeSent=new ArrayList<>();
-        toBeSent.add(placeId);
-        toBeSent.add(categoryFound);
+        toBeSent=placeIdList;
+        toBeSent.add("Adver");
 
         //this.product = product;
 //        String serverName = "localhost";
@@ -77,8 +77,9 @@ public class DBForProducts {
 //            intent.putStringArrayListExtra("arrayOfProducts",(ArrayList)productsList);
 //            //intent.putStringArrayListExtra("arrayOfCats", (ArrayList<String>) categories);
 //            context.startActivity(intent);
-            Intent intent=new Intent(context,Products_List.class);
-            intent.putStringArrayListExtra("arrayOfProducts",(ArrayList<String>)productsList);
+            Intent intent=new Intent(context,Advertisements.class);
+            intent.putStringArrayListExtra("ads",(ArrayList<String>)AdList);
+
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }
@@ -111,7 +112,7 @@ public class DBForProducts {
                 Log.v("fuck","i am here2");
                 ObjectInputStream in = new ObjectInputStream(inFromServer);
                 Log.v("fuck","i am here3");
-                productsList= (ArrayList<String>)in.readObject();
+                AdList= (ArrayList<String>)in.readObject();
                 //categories=(ArrayList<String>) in.readObject();
                 //product=(Product)in.readObject();
                 Log.v("fuck","i am here4");

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private PlacesRecyclerViewAdapter placesRecyclerViewAdapter;
     public static final String PLACE_TRANSFER="PLACE_TRANSFER";
+    private List<String> placeIdList;
+
+    Button adButton;
 //small change
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         //placeJSONParser.execute();
 
 
-
+        adButton=(Button)findViewById(R.id.adsBar);
+        adButton.setText("Ads for below Shops");
 
 
         mRecyclerView=(RecyclerView)findViewById(R.id.recycler_view);
@@ -107,6 +112,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }));
 
+            placeIdList=getPlaceIdList();
+
+            for(String s:placeIdList){
+                Log.v("suck",s);
+            }
+
+            adButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                DBForAds dbForAds=new DBForAds(MainActivity.this,placeIdList);
+                    dbForAds.execute();
+                }
+            });
         }
 
         public void execute(){

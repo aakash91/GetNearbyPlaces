@@ -68,6 +68,10 @@
             android:name=".shops_category"
             android:label="@string/title_activity_shops_category" >
         </activity>
+        <activity
+            android:name=".Advertisements"
+            android:label="@string/title_activity_advertisements" >
+        </activity>
     </application>
 
 </manifest>

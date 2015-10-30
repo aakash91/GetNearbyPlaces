@@ -30,14 +30,16 @@ public class PlaceJSONParser extends GetRawData {
     private StringBuilder mDestinationUri;
     private ArrayList<String> uriList;
     private List<String> detailsData;
+    private List<String> placeIdList;
 
     public PlaceJSONParser(double latitude, double longitude,String type) {
         super(null);
-        createAndUpdateUri(latitude, longitude,type);
+        createAndUpdateUri(latitude, longitude, type);
         mPlaces = new ArrayList<>();
         placeIds = new ArrayList<>();
         detailsData = new ArrayList<>();
         uriList = new ArrayList<>();
+        placeIdList=new ArrayList<>();
 
     }
 
@@ -92,6 +94,10 @@ public class PlaceJSONParser extends GetRawData {
 
     public List<Places> getmPlaces() {
         return mPlaces;
+    }
+
+    public List<String> getPlaceIdList() {
+        return placeIdList;
     }
 
     public List<String> getDetailsData() {
@@ -232,6 +238,7 @@ public class PlaceJSONParser extends GetRawData {
                 }
                 if (jsonObject.has(placeId)) {
                     mPlaceId = jsonObject.getString(placeId);
+                    placeIdList.add(mPlaceId);
                 } else {
                     mPlaceId = "n/a";
                 }
