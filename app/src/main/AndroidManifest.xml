@@ -72,6 +72,10 @@
             android:name=".Advertisements"
             android:label="@string/title_activity_advertisements" >
         </activity>
+        <activity
+            android:name=".Product_Details"
+            android:label="@string/title_activity_product__details" >
+        </activity>
     </application>
 
 </manifest>
