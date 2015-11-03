@@ -1,7 +1,9 @@
 package com.singh.aakash.getnearbyplaces;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
@@ -43,6 +45,16 @@ public class BaseActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+        Intent intent=getIntent();
+        TextView USER=(TextView)findViewById(R.id.USER);
+        USER.setText("Hi "+intent.getExtras().getString("username")+", \n"+"Let's go Shopping");
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        //SharedPreferences.Editor editor = settings.edit();
+        sharedPref.edit().putBoolean("hasLoggedIn", true).commit();
+        sharedPref.edit().putString("username", intent.getExtras().getString("username")).commit();
+        sharedPref.edit().putString("pwd", intent.getExtras().getString("pwd")).commit();
+
         mGoogleApiClient = new GoogleApiClient.Builder(BaseActivity.this)
                 .addApi(Places.GEO_DATA_API)
                 .enableAutoManage(this, GOOGLE_API_CLIENT_ID, this)

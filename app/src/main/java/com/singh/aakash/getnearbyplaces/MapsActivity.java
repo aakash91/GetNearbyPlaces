@@ -25,8 +25,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         latitude=Double.parseDouble(intent.getExtras().getString("latitude"));
         longitude=Double.parseDouble(intent.getExtras().getString("longitude"));
         name=intent.getExtras().getString("name");
-        Log.v("latitude", "" + latitude);
-        Log.v("longitude",""+longitude);
+        Log.v("fucklatitude", "" + latitude);
+        Log.v("fucklongitude",""+longitude);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);

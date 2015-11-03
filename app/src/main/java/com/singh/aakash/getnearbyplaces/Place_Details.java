@@ -2,6 +2,7 @@ package com.singh.aakash.getnearbyplaces;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,6 +40,8 @@ public class Place_Details extends MainActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
+                Log.v("fucklat",latitude);
+                Log.v("fucklat",longitude);
 
                 Intent intent = new Intent(Place_Details.this, MapsActivity.class);
 

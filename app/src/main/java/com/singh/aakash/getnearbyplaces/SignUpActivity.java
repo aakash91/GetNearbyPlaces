@@ -1,0 +1,57 @@
+package com.singh.aakash.getnearbyplaces;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class SignUpActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+
+        final EditText userName=(EditText)findViewById(R.id.user_name);
+        final EditText emailId=(EditText)findViewById(R.id.emailid);
+        final EditText personName=(EditText)findViewById(R.id.personName);
+        final EditText mobile=(EditText)findViewById(R.id.mobile);
+        final EditText pwd=(EditText)findViewById(R.id.user_pwd);
+        Button signUp=(Button)findViewById(R.id.signUp);
+        signUp.setText("Register");
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBForSignUp dbForSignUp=new DBForSignUp(SignUpActivity.this,userName.getText().toString(),emailId.getText().toString(),personName.getText().toString(),mobile.getText().toString(),pwd.getText().toString());
+                dbForSignUp.execute();
+            }
+        });
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_sign_up, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
