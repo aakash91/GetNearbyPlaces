@@ -27,6 +27,16 @@
         android:textSize="20sp"
         />
 
+<EditText
+    android:id="@+id/quantity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:textColor="#77d4ff"
+    android:textSize="20sp"
+    android:inputType="number"
+    />
+
     <TextView
         android:id="@+id/product_price"
         android:layout_width="match_parent"
@@ -44,5 +54,9 @@
     android:textColor="#77d4ff"
     />
 
+    <Button
+        android:id="@+id/checkOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

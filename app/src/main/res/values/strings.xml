@@ -16,4 +16,5 @@
     <string name="title_activity_product__details">Product_Details</string>
     <string name="title_activity_log_in">LogIn</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_shopping_cart">ShoppingCart</string>
 </resources>

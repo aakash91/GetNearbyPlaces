@@ -1,26 +1,29 @@
 package com.singh.aakash.getnearbyplaces;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Product_Details extends AppCompatActivity {
-
+Intent intent1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product__details);
 
-        Intent intent=getIntent();
-        TextView name=(TextView) findViewById(R.id.product_name);
+        final Intent intent=getIntent();
+        final TextView name=(TextView) findViewById(R.id.product_name);
         TextView description=(TextView) findViewById(R.id.product_description);
-        TextView price=(TextView) findViewById(R.id.product_price);
+        final TextView price=(TextView) findViewById(R.id.product_price);
+        final EditText qty=(EditText) findViewById(R.id.quantity);
 
         name.setText(intent.getExtras().getString("name"));
         description.setText(intent.getExtras().getString("des"));
@@ -32,8 +35,31 @@ public class Product_Details extends AppCompatActivity {
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast=Toast.makeText(Product_Details.this, "Item added to your cart", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(Product_Details.this, "Item added to your cart", Toast.LENGTH_LONG);
                 toast.show();
+
+
+                //intent1.putExtra("product"+Counter_Class.getCount(),name.getText().toString()+"-"+qty.getText().toString()+"-"+price.getText().toString());
+                Static_Buffer.getStringBuffer().add(name.getText().toString() + "-" + qty.getText().toString() + "-" + price.getText().toString());
+                Counter_Class.inc_counter();
+            }
+        });
+
+        Button checkOut=(Button) findViewById(R.id.checkOut);
+        checkOut.setText("Proceed to Checkout");
+
+
+        checkOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent1=new Intent(Product_Details.this,ShoppingCart.class);
+                Log.v("where",Counter_Class.getCount()+"");
+                for(int i=0;i<Counter_Class.getCount();i++){
+                    //intent.putExtra("product"+i,Static_Buffer.getStringBuffer().get(i));
+                    Log.v("where",Static_Buffer.getStringBuffer().get(i) +" " );
+
+                }
+                startActivity(intent1);
             }
         });
     }

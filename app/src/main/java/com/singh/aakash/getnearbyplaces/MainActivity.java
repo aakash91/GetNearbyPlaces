@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         //placeJSONParser.execute();
 
 
+
         adButton=(Button)findViewById(R.id.adsBar);
         adButton.setText("Ads for below Shops");
 

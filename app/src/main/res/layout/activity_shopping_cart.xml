@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_above="@+id/footerlayout"
+        android:id="@+id/listviewlayout">
+        <ListView
+            android:id="@+id/listProducts"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </ListView>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/footerlayout"
+        android:layout_marginTop="3dip"
+        android:layout_height="45dip"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/PlaceOrder"
+            android:text="Place Order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </Button>
+
+    </LinearLayout>
+</RelativeLayout>
